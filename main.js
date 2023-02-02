@@ -12,12 +12,7 @@ function getComputerChoice() {
 let pPoints = 0
 let cPoints = 0
 
-
-
-
-
-
-
+/*Round*/
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
 
@@ -41,24 +36,28 @@ function playRound(playerSelection, computerSelection) {
         cPoints++
         return "Player Lost, Rock beats Scissor"
     }
-    
 }
 
-
 function game(){
-    console.log(`Player Score = ${pPoints}`);
-    console.log(`Computer Score = ${cPoints}`)
     const playerSelection = window.prompt("Rock,Paper,Scissor").toLowerCase()
     const computerSelection = getComputerChoice();
     return playRound(playerSelection, computerSelection)
-    
-   
-   
-    
+}
+function winner(){
+    if (pPoints > cPoints) {
+        return "Player Wins the Game!!"
+    } else if ( cPoints > pPoints) {
+        return "Player Loses"
+    } else if (pPoints === cPoints) {
+        return "It's A TIE"
+    }
 }
 
-console.log(game())
-
-for (let i =0; i < 5; i++) {
-    game(i)
+for(let i =0; i < 5; i++) {
+    console.log(game())
+    console.log(`Player Score = ${pPoints}`);
+    console.log(`Computer Score = ${cPoints}`)
+   
 }
+console.log(winner())
+
